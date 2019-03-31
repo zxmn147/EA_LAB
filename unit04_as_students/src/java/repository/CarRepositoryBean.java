@@ -36,12 +36,12 @@ public class CarRepositoryBean {
         Car newCar = new Car();
         newCar.setName("Camery");
         newCar.setManufacturer("Toyta");
-        newCar.setImg_uri("resource_path_to_car_graph");
+        newCar.setImg_uri("AltasToyota.jpg");
         this.create(newCar);
         Car newCar2 = new Car();
         newCar2.setName("Altas");
         newCar2.setManufacturer("Toyta");
-        newCar2.setImg_uri("resource_path_to_car_graph");
+        newCar2.setImg_uri("camrytoyota.jpg");
         this.create(newCar2);
     }
     
