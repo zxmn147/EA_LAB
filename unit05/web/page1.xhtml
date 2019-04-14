@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <f:metadata>
+            <!--Put the request parameters to bean properties-->
+            <f:viewParam name="ItemID" value="#{newJSFManagedBean.pageID}"/>
+        </f:metadata>
+        <title>Page 1</title>
+        
+    </h:head>
+    <h:body>
+        <h1>Page 1</h1>
+        <h:link outcome="/index">Home</h:link>
+        <p>
+           《陰陽師》是由中國遊戲廠商網易遊戲旗下的Zen工作室根據日本陰陽師文化所開發的一款角色扮演類網路遊戲，該網路遊戲支援iOS、Android等手機平台和Windows電腦平台。該遊戲由網易遊戲負責中國大陸地區、港澳台地區和日本地區發行，而由Kakao遊戲負責韓國地區發行。
+        </p>
+        <h:graphicImage library="img" name="#{newJSFManagedBean.pageID}.jpg"/>
+    </h:body>
+</html>
+

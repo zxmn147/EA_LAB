@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+         <f:metadata>
+            <!--Put the request parameters to bean properties-->
+            <f:viewParam name="ItemID" value="#{newJSFManagedBean.pageID}"/>
+        </f:metadata>
+        <title>Page 3</title>
+    </h:head>
+    <h:body>
+        <h1>Page 3</h1>
+        <h:link outcome="/index">Home</h:link>
+        <p>
+           《少女前線》是散爆網路開發的的手機遊戲。該遊戲以從19世紀末至現代的槍械之萌擬人化為主題。和散爆網路在同人團體時代、於2013年發表的作品《麵包房少女》共享世界觀。 Android版已經於2016年5月20日以不刪檔內測的形式在中國大陸正式上線。
+        </p>
+          <h:graphicImage library="img" name="#{newJSFManagedBean.pageID}.jpg"/>
+    </h:body>
+</html>
+
