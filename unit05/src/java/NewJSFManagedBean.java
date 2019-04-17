@@ -53,16 +53,14 @@ public class NewJSFManagedBean implements Serializable{
             return "index?faces-redirect=true";
         }
         if (pageID.equals("1")){
-            return "page1?faces-redirect=true";
+            return "1";
         }else if (pageID.equals("2")){
-            return "page2?faces-redirect=true";
+            return "2";
         }else if (pageID.equals("3")){
-            return "page3?faces-redirect=true";
+            return "3";
         }else {          
          return "home";       
       }     
     }
     
-    
-
 }

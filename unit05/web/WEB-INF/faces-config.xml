@@ -1,28 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <navigation-rule>
+            <from-view-id>/index.xhtml</from-view-id>
+            <navigation-case>
+                <from-action>#{newJSFManagedBean.page()}</from-action>
+                <from-outcome>1</from-outcome>
+                <to-view-id>/page1.xhtml</to-view-id>
+                
+                <redirect/>
+            </navigation-case>
+            <navigation-case>
+                <from-action>#{newJSFManagedBean.page()}</from-action>
+                <from-outcome>2</from-outcome>
+                <to-view-id>/page2.xhtml</to-view-id>
+                <redirect/>
+            </navigation-case>
+            <navigation-case>
+                <from-action>#{newJSFManagedBean.page()}</from-action>
+                <from-outcome>3</from-outcome>
+                <to-view-id>/page3.xhtml</to-view-id>
+                <redirect/>
+            </navigation-case>
+   </navigation-rule>
+  
+</faces-config>
 
-
-<root>
-      <navigation-rule>
-            <from-view-id>index</from-view-id>
-            <navigation-case>
-                <from-action>#{newJSFManagedBean.page1()}</from-action>
-                <from-outcome>page1</from-outcome>
-                <to-view-id>page1</to-view-id>
-            </navigation-case>
-            <navigation-case>
-                <from-action>#{newJSFManagedBean.page2()}</from-action>
-                <from-outcome>page2</from-outcome>
-                <to-view-id>page2</to-view-id>
-            </navigation-case>
-            <navigation-case>
-                <from-action>#{newJSFManagedBean.page3()}</from-action>
-                <from-outcome>page3</from-outcome>
-                <to-view-id>page3</to-view-id>
-            </navigation-case>
-        </navigation-rule>
-</root>
