@@ -9,12 +9,12 @@
         <h:form>
             <h:panelGrid columns="2">
                 
-                Image URL: <h:inputText value="#{crudBean.newItem.image}"/>
+                Image URL: <h:inputText value="#{crudBean.newItem.image}"/><br/>
                 Description: <h:inputText value ="#{crudBean.newItem.description}"/>
                 
-            </h:panelGrid>
-            <h:commandButton value="Cancel" action="index"/>
-            <h:commandButton value="Submitt" action="#{crudBean.addItem}" />
+            </h:panelGrid><br/>
+            <h:commandButton value="Cancel" action="index" style="border-radius: 5px"/>
+            <h:commandButton value="Submitt" action="#{crudBean.addItem}" style="border-radius: 5px; margin-left: 5px；" />
         </h:form>
     </h:body>
 </html>

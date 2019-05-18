@@ -28,4 +28,8 @@ public class ItemFacade extends AbstractFacade<Item>{
         return em;
     }
 
+    public Item find(Class<Item> aClass, Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

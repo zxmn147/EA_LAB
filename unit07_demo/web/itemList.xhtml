@@ -2,33 +2,45 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
+         <f:metadata>
+            <!--Put the request parameters to bean properties-->
+            <f:viewParam name="iditem" value="#{crudBean.getID}"/>
+        </f:metadata>
     </h:head>
     <h:body>
-        <img src="https://drive.google.com/drive/u/0/folders/1MKrU2cqUK7BVwCEY965iwu65awpuXEtP"/>
- 
-        <h:dataTable value="#{crudBean.findAll()}" var="item">
-            <h:column>
+        <p:dataTable value="#{crudBean.findAll()}" var="item">
+            <p:column>
                 <!-- column header -->
                 <f:facet name="header">ID</f:facet>
                 <!-- row record -->
                 #{item.id}
-            </h:column>
-            <h:column>
-                <h:graphicImage  
-   value = "#{item.image}"/> 
+            </p:column>
+            <p:column>
+             
                 <f:facet name="header">Image URL</f:facet>
                     #{item.image}
-            </h:column>
-            <h:column>
+            </p:column>
+            <p:column>
                 <f:facet name="header">Description</f:facet>
                     #{item.description}
-            </h:column>
-        </h:dataTable>
+            </p:column>
+            <p:column>
+                <h:button value="Edit" outcome="update" style="border-radius: 5px">
+                    <f:param name="iditem" value="#{item.id}" />
+                </h:button>
+            </p:column>
+            <p:column>
+                <h:form>
+                    <h:commandButton value="Delete" action="#{crudBean.delete(item)}" style="border-radius: 5px; margin-left: 5px;"/>
+                </h:form>
+            </p:column>
+        </p:dataTable><br/>
         <h:form>
-            <h:commandButton value="Create Item" action="#{crudBean.goNewItemPage}" />
+            <h:commandButton value="Create Item" action="#{crudBean.goNewItemPage}" style="border-radius: 5px"/>
         </h:form>
     </h:body>
 </html>

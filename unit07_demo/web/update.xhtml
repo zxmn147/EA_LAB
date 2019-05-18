@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:f="http://xmlns.jcp.org/jsf/core"
+       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+         <f:metadata>
+            <!--Put the request parameters to bean properties-->
+            <f:viewParam name="iditem" value="#{crudBean.getID}"/>
+        </f:metadata>
+    </h:head>
+    <h:body>
+        <h:form>
+          <h:dataTable value="#{crudBean.find()}" var="item">
+            <h:column>
+                <!-- column header -->
+                <f:facet name="header">ID</f:facet>
+                     
+                <!-- row record -->
+                #{item.id}
+            </h:column>
+            <h:column>
+                <!-- column header -->
+                <f:facet name="header">Image URL</f:facet>
+                     
+                <!-- row record -->
+                #{item.image}
+            </h:column>
+            <h:column>
+               
+                <f:facet name="header">新Image URL</f:facet>
+        
+               
+                <h:inputText value="#{crudBean.img}" ></h:inputText> 
+        
+            </h:column>
+            <h:column>
+                <f:facet name="header">Description</f:facet>
+                #{item.description}
+              
+            </h:column>
+            <h:column>
+                <f:facet name="header">新Description</f:facet>
+                <h:inputText  value="#{crudBean.des}"  ></h:inputText> 
+           
+            </h:column>
+             <h:column>
+                 <h:commandButton value="submit" action="#{crudBean.update(item)}" style="border-radius: 5px"></h:commandButton>
+                 <h:button value="cancel"  outcome="itemList" style="border-radius: 5px"></h:button>
+             </h:column>
+   
+        </h:dataTable>
+        </h:form>
+       
+    </h:body>
+</html>
+
