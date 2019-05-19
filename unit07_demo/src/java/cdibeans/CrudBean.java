@@ -157,16 +157,12 @@ public class CrudBean implements Serializable {
     
    
     
-    public String update(Item item){
-        item.setDescription(des);
-        item.setImage(img);
-      
-        itemFacade.edit(item);
-        this.img = null;
-        this.des = null;
-        return "itemList"; 
-
-
+    public Item update(Item item){
+       Item object = itemFacade.find(getID);
+       object.setDescription(item.getDescription());
+       object.setImage(item.getImage());
+       itemFacade.edit(object);
+       return object; 
     }
     
    

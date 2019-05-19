@@ -21,29 +21,15 @@
                 <!-- row record -->
                 #{item.id}
             </h:column>
+     
             <h:column>
-                <!-- column header -->
-                <f:facet name="header">Image URL</f:facet>
-                     
-                <!-- row record -->
-                #{item.image}
-            </h:column>
-            <h:column>
-               
                 <f:facet name="header">新Image URL</f:facet>
-        
-               
-                <h:inputText value="#{crudBean.img}" ></h:inputText> 
-        
+                <h:inputText value="#{item.image}" ></h:inputText> 
             </h:column>
-            <h:column>
-                <f:facet name="header">Description</f:facet>
-                #{item.description}
-              
-            </h:column>
+         
             <h:column>
                 <f:facet name="header">新Description</f:facet>
-                <h:inputText  value="#{crudBean.des}"  ></h:inputText> 
+                <h:inputText  value=" #{item.description}"  ></h:inputText> 
            
             </h:column>
              <h:column>
