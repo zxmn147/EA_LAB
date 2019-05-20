@@ -26,13 +26,31 @@ public class CrudBean implements Serializable {
     @EJB
     private ItemFacade itemFacade;
     
-    private long getID;
+    private long itemID;
 
-
+    private Item currentItem;
+    
     private Object request;
 
     private String img;
+
+    public Item getCurrentItem() {
+        return currentItem;
+    }
+
+    public void setCurrentItem(Item currentItem) {
+        this.currentItem = currentItem;
+    }
    
+    /**
+     * Action to edit an item
+     * @return 
+     */
+    public String editItem(){
+        this.currentItem = find();
+        
+        return null;
+    }
     /**
      * Get the value of img
      *
@@ -76,17 +94,17 @@ public class CrudBean implements Serializable {
      *
      * @return the value of getID
      */
-    public long getGetID() {
-        return getID;
+    public long getItemID() {
+        return itemID;
     }
 
     /**
      * Set the value of getID
      *
-     * @param getID new value of getID
+     * @param itemID new value of getID
      */
-    public void setGetID(long getID) {
-        this.getID = getID;
+    public void setItemID(long itemID) {
+        this.itemID = itemID;
     }
 
     private Item newItem;
@@ -94,25 +112,6 @@ public class CrudBean implements Serializable {
    
     
     private String getId;
-
-    /**
-     * Get the value of getId
-     *
-     * @return the value of getId
-     */
-    public String getGetId() {
-        return getId;
-    }
-
-    /**
-     * Set the value of getId
-     *
-     * @param getId new value of getId
-     */
-    public void setGetId(String getId) {
-        this.getId = getId;
-    }
-
 
     
     /**
@@ -152,13 +151,13 @@ public class CrudBean implements Serializable {
    
     
      public Item find(){
-        return itemFacade.find(getID);
+        return itemFacade.find(itemID);
     }
     
    
     
     public Item update(Item item){
-       Item object = itemFacade.find(getID);
+       Item object = itemFacade.find(itemID);
        object.setDescription(item.getDescription());
        object.setImage(item.getImage());
        itemFacade.edit(object);

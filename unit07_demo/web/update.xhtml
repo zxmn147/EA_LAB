@@ -2,44 +2,53 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-       xmlns:f="http://xmlns.jcp.org/jsf/core"
-       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Facelet Title</title>
-         <f:metadata>
+        <f:metadata>
             <!--Put the request parameters to bean properties-->
-            <f:viewParam name="iditem" value="#{crudBean.getID}"/>
+            <f:viewParam name="iditem" value="#{crudBean.itemID}"/>
+             <f:viewAction action="#{crudBean.editItem()}" />
         </f:metadata>
     </h:head>
     <h:body>
         <h:form>
-          <h:dataTable value="#{crudBean.find()}" var="item">
-            <h:column>
-                <!-- column header -->
-                <f:facet name="header">ID</f:facet>
-                     
-                <!-- row record -->
-                #{item.id}
-            </h:column>
-     
-            <h:column>
-                <f:facet name="header">新Image URL</f:facet>
-                <h:inputText value="#{item.image}" ></h:inputText> 
-            </h:column>
-         
-            <h:column>
-                <f:facet name="header">新Description</f:facet>
-                <h:inputText  value=" #{item.description}"  ></h:inputText> 
-           
-            </h:column>
-             <h:column>
-                 <h:commandButton value="submit" action="#{crudBean.update(item)}" style="border-radius: 5px"></h:commandButton>
-                 <h:button value="cancel"  outcome="itemList" style="border-radius: 5px"></h:button>
-             </h:column>
-   
-        </h:dataTable>
+            <h:panelGrid columns="2">
+                Image URL: <h:inputText value="#{crudBean.currentItem.image}" />
+                Description: <h:inputText value="#{crudBean.currentItem.description}" />
+                
+            </h:panelGrid>
+            <!--只有一筆資料, 不需要使用 dataTable-->
+            <ui:remove>
+                <h:dataTable value="#{crudBean.find()}" var="item">
+                    <h:column>
+                        <!-- column header -->
+                        <f:facet name="header">ID</f:facet>
+
+                        <!-- row record -->
+                        #{item.id}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">新Image URL</f:facet>
+                        <h:inputText value="#{item.image}" ></h:inputText> 
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">新Description</f:facet>
+                        <h:inputText  value=" #{item.description}"  ></h:inputText> 
+
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="submit" action="#{crudBean.update(item)}" style="border-radius: 5px"></h:commandButton>
+                        <h:button value="cancel"  outcome="itemList" style="border-radius: 5px"></h:button>
+                    </h:column>
+
+                </h:dataTable>
+            </ui:remove>
         </h:form>
-       
+
     </h:body>
 </html>
 
