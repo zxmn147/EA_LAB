@@ -29,9 +29,7 @@ public class CrudBean implements Serializable {
     private long itemID;
 
     private Item currentItem;
-    
-    private Object request;
-
+  
     private String img;
 
     public Item getCurrentItem() {
@@ -48,47 +46,9 @@ public class CrudBean implements Serializable {
      */
     public String editItem(){
         this.currentItem = find();
-        
         return null;
     }
-    /**
-     * Get the value of img
-     *
-     * @return the value of img
-     */
-    public String getImg() {
-        return img;
-    }
-
-    /**
-     * Set the value of img
-     *
-     * @param img new value of img
-     */
-    public void setImg(String img) {
-        this.img = img;
-    }
-
-    private String des;
-
-    /**
-     * Get the value of des
-     *
-     * @return the value of des
-     */
-    public String getDes() {
-        return des;
-    }
-
-    /**
-     * Set the value of des
-     *
-     * @param des new value of des
-     */
-    public void setDes(String des) {
-        this.des = des;
-    }
-
+    
     /**
      * Get the value of getID
      *
@@ -154,14 +114,10 @@ public class CrudBean implements Serializable {
         return itemFacade.find(itemID);
     }
     
-   
-    
-    public Item update(Item item){
-       Item object = itemFacade.find(itemID);
-       object.setDescription(item.getDescription());
-       object.setImage(item.getImage());
-       itemFacade.edit(object);
-       return object; 
+    public String update(){
+        Item object = getCurrentItem();
+        itemFacade.edit(object);
+       return "itemList";
     }
     
    
